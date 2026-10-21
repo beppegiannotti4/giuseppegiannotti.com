@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Giuseppe Giannotti, poeta. La Costruzione di un'Immagine (Helicon 2025), premi letterari, il programma Stregati.">
+<meta property="og:title" content="Giuseppe Giannotti">
+<meta property="og:description" content="Poesie dalla Lunigiana, un mare di monti.">
+<meta property="og:image" content="https://giuseppegiannotti.com/ritratto.jpg">
+<link rel="icon" href="data:,">
+<title>Giuseppe Giannotti</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+html{color-scheme:light dark}
+img{max-width:100%}
+
+/* Layout: una colonna di lettura stretta (65 caratteri), sezioni separate da righe di marmo; la navigazione resta in alto come un indice di libro. */
+:root{
+  --bg:#f2f3f1;          /* carta grigio-verde, luce di Lunigiana */
+  --bg-2:#e7e9e5;        /* banda per Stregati e newsletter */
+  --fg:#1d221f;
+  --fg-2:#555c57;        /* note, date, didascalie */
+  --rule:#c9cdc6;        /* righe */
+  --accent:#2f5a62;      /* ardesia-verde: il mare visto dai monti */
+  --accent-ink:#ffffff;
+  --display:"Cormorant Garamond",Garamond,Georgia,serif;
+  --body:"EB Garamond",Garamond,Georgia,serif;
+  --ui:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181a;--bg-2:#1d2124;--fg:#e8e6df;--fg-2:#a3a89f;--rule:#343a3b;--accent:#8fb8bf;--accent-ink:#0f1416;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#15181a;--bg-2:#1d2124;--fg:#e8e6df;--fg-2:#a3a89f;--rule:#343a3b;--accent:#8fb8bf;--accent-ink:#0f1416;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.125rem;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a:hover,a:focus-visible{border-bottom-color:currentColor;outline:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:46rem;margin:0 auto}
+.wide{max-width:60rem;margin:0 auto}
+
+/* Testata e navigazione */
+header.site{padding-block:1.6rem 1.2rem;border-bottom:1px solid var(--rule)}
+header.site .wide{display:flex;flex-wrap:wrap;gap:.8rem 2rem;align-items:baseline;justify-content:space-between}
+.brand{font-family:var(--display);font-size:1.7rem;font-weight:500;letter-spacing:.01em;color:var(--fg)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.3rem 1.3rem}
+nav a{font-family:var(--ui);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-2);padding-block:.2rem}
+nav a:hover,nav a[aria-current="true"]{color:var(--accent)}
+
+/* Home */
+.hero{padding-block:4.5rem 3.5rem}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;margin:0 0 1.2rem;text-wrap:balance}
+.hero p.id{font-size:1.25rem;max-width:34ch;margin:0 0 2rem}
+.epigraph{border-left:2px solid var(--accent);padding-left:1rem;color:var(--fg-2);font-style:italic;max-width:40ch}
+.epigraph small{display:block;font-style:normal;font-family:var(--ui);font-size:.78rem;letter-spacing:.06em;margin-top:.4rem}
+
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15rem);gap:2.5rem;align-items:start;max-width:60rem}
+.portrait{width:100%;max-width:100%;height:auto;display:block;filter:grayscale(1)}
+@media (max-width:640px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:12rem}}
+/* Sezioni */
+section{padding-block:3.5rem;border-top:1px solid var(--rule)}
+section.band{background:var(--bg-2);border-top:0;
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--ui);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-2);margin:0 0 .6rem}
+h2{font-family:var(--display);font-weight:500;font-size:2.2rem;line-height:1.1;margin:0 0 1.6rem;text-wrap:balance}
+h3{font-family:var(--display);font-weight:500;font-size:1.45rem;margin:0 0 .4rem}
+p{margin:0 0 1rem}
+.note{color:var(--fg-2);font-size:1rem}
+
+/* Libri */
+.book{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:2rem;align-items:start}
+.cover{width:100%;max-width:100%;height:auto;display:block;box-shadow:0 1px 2px rgba(0,0,0,.25),0 8px 24px -12px rgba(0,0,0,.35)}
+.meta{font-family:var(--ui);font-size:.85rem;color:var(--fg-2);margin:0 0 1rem}
+.poems{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:2rem 3rem;margin-top:2.5rem}
+.poem h4{font-family:var(--display);font-weight:500;font-size:1.2rem;margin:0 0 .6rem}
+.poem pre{font:inherit;white-space:pre-wrap;margin:0;line-height:1.5}
+
+/* Premi */
+.year{display:grid;grid-template-columns:5rem minmax(0,1fr);gap:1rem 1.5rem;padding-block:1.4rem;border-top:1px solid var(--rule)}
+.year:first-of-type{border-top:0}
+.year .y{font-family:var(--display);font-size:1.8rem;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.year ul{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+.year li{line-height:1.45}
+.year li b{font-weight:500}
+.year li span{display:block;color:var(--fg-2);font-size:1rem}
+
+/* Stregati */
+.stregati{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:2rem 3rem}
+.btn{display:inline-block;font-family:var(--ui);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--accent);color:var(--accent-ink);padding:.7rem 1.1rem;border:0;border-radius:2px;cursor:pointer}
+.btn:hover{border-bottom-color:transparent;filter:brightness(1.08)}
+.episodes{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.6rem}
+.episodes li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1rem;align-items:baseline}
+.episodes time{font-family:var(--ui);font-size:.8rem;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.sign{font-style:italic;color:var(--fg-2);margin-top:1.4rem}
+
+/* Giuria */
+table{width:100%;border-collapse:collapse;font-size:1.05rem}
+th,td{text-align:left;padding:.6rem .4rem;border-top:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--ui);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-2);font-weight:500;border-top:0}
+.tbl{overflow-x:auto}
+
+/* Newsletter + contatti */
+form{display:grid;gap:.8rem;max-width:30rem}
+label{font-family:var(--ui);font-size:.85rem;color:var(--fg-2)}
+input[type=email],input[type=text]{font:inherit;padding:.65rem .8rem;border:1px solid var(--rule);background:var(--bg);color:var(--fg);border-radius:2px;width:100%}
+.consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:var(--fg-2);font-family:var(--ui)}
+.consent input{margin-top:.3rem}
+.msg{font-family:var(--ui);font-size:.9rem;color:var(--accent);min-height:1.2em}
+.email{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.email code{font-family:var(--ui);font-size:1rem;background:var(--bg-2);padding:.45rem .7rem;border-radius:2px;user-select:all}
+.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+footer{padding-block:2.5rem;border-top:1px solid var(--rule);font-family:var(--ui);font-size:.8rem;color:var(--fg-2);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+
+@media (max-width:560px){
+  .book{grid-template-columns:1fr}
+  .cover{max-width:9rem}
+  .year{grid-template-columns:1fr;gap:.4rem}
+  .episodes li{grid-template-columns:1fr;gap:.1rem}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <div class="wide">
+    <a class="brand" href="#home">Giuseppe Giannotti</a>
+    <nav aria-label="Sezioni">
+      <ul>
+        <li><a href="#libri">Libri</a></li>
+        <li><a href="#premi">Premi</a></li>
+        <li><a href="#stregati">Stregati</a></li>
+        <li><a href="#giuria">Giuria</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home" style="border-top:0">
+  <div class="wrap hero-grid">
+    <img class="portrait" src="ritratto.jpg" alt="Giuseppe Giannotti, ritratto in bianco e nero" width="900" height="900">
+    <div>
+    <h1>Poesie dalla Lunigiana,<br>un mare di monti.</h1>
+    <p class="id">Giuseppe Giannotti scrive poesia per sottrazione: immagini concrete, nessun commento, chiuse che non consolano. Vive e lavora ad Aulla, dove fa il farmacista. Conduce <em>Stregati</em>, un programma notturno di poesia.</p>
+    <blockquote class="epigraph">Garder le calme devant la dissonance
+      <small>Claude Sautet, epitaffio a Montparnasse</small>
+    </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="libri">
+  <div class="wrap">
+    <p class="eyebrow">Libri</p>
+    <h2>La Costruzione di un'Immagine</h2>
+    <div class="book">
+      <img class="cover" src="copertina.jpg" alt="Copertina de La Costruzione di un'Immagine, Edizioni Helicon" width="800" height="1153">
+      <div>
+        <p class="meta">Edizioni Helicon, Arezzo · collana «Le Organze» a cura di Marina Pratici · aprile 2025 · prefazione di Cristiana Vettori · in copertina Toulouse-Lautrec, <em>At the Moulin Rouge</em> · ISBN 979-12-5720-013-8 · € 16,00</p>
+        <p>Novantacinque testi, dalla <em>Remora</em> che apre il libro a <em>Primavera</em> che lo chiude, con una serie di haiku e un ciclo di poesie della Lunigiana. In esergo e in congedo, due passi di Camillo Sbarbaro.</p>
+        <p>Il libro è stato Premio Opera Prima alla <em>Via dei Libri</em> di Pontremoli e secondo premio al Premio Pasolini-Parigi 2026.</p>
+        <p><a href="https://edizionihelicon.it/libri/la-costruzione-di-un-immagine">Acquista dall'editore</a> · 14 × 20 cm, stampa a colori</p>
+      </div>
+    </div>
+
+    <div class="poems">
+      <div class="poem"><h4>Primavera</h4><pre>La nitidezza primaverile
+si scioglie nel brodo primordiale
+di un cuore oscuro.
+i bordi incolti
+del sentiero scalcinato
+allevano soffioni che decollano
+per poi eclissarsi
+torbidamente lontano</pre></div>
+      <div class="poem"><h4>La Balena nella notte</h4><pre>Una balena dalla pancia bianca
+spiaggiò nella notte
+esangue al vento e alla sabbia
+dall'alta scogliera impotenti
+fin dall'alba
+i bagnanti non si mossero
+a pietà.</pre></div>
+      <div class="poem"><h4>Maggio a Milano</h4><pre>Frenesia tranquilla
+di foglie di pioppo
+sospeso sulla terra
+entrano piccoli esseri
+invisibili, tutto in fretta
+tutto finito voglia di pace
+di niente
+di sonno
+sul marmo uccelli beccano
+lisci da piatti spezzati
+un raggio di buio
+esce da un cassetto aperto.</pre></div>
+    </div>
+    <p class="note" style="margin-top:2rem">Una seconda raccolta, <em>Ucronie</em>, è in lettura presso l'editore.</p>
+  </div>
+</section>
+
+<section id="premi">
+  <div class="wrap">
+    <p class="eyebrow">Premi</p>
+    <h2>Riconoscimenti</h2>
+
+    <div class="year"><div class="y">2026</div><ul>
+      <li><b>Premio Pasolini-Parigi</b> — secondo premio, poesia edita, per <em>La Costruzione di un'Immagine</em><span>Parigi, Montmartre</span></li>
+      <li><b>Premio Val di Magra – Roberto Micheloni – Città di Aulla</b>, XXXIII edizione — secondo premio, poesia singola, per <em>Gennaio</em>; segnalazione di merito per <em>La Costruzione di un'Immagine</em></li>
+      <li><b>Premio Letterario Casentino</b>, 51ª edizione — primo premio «Storie di Montagna» per <em>Montevignale di Lunigiana</em>; premio speciale della giuria per la poesia inedita<span>Pratovecchio Stia</span></li>
+      <li><b>Premio Ossi di Seppia – Solstizio d'Estate</b> — secondo premio assoluto, poesia singola, per <em>Gennaio</em><span>Arma di Taggia · giuria presieduta da Lamberto Garzia</span></li>
+      <li><b>Premio La Ginestra di Firenze</b> — secondo premio assoluto, poesia inedita</li>
+      <li><b>Premio I Colori dell'Anima</b>, XIV edizione — Gran Premio della Giuria nelle sezioni poesia e «Le Regioni dell'Anima»</li>
+      <li><b>Premio Byron</b> — premio della critica per <em>Schiene</em></li>
+      <li><b>Premio Galloni</b> — menzione d'onore per <em>Zelmira</em><span>Montignoso</span></li>
+      <li><b>Premio Città di Varallo</b>, XIV edizione — menzione di merito</li>
+      <li><b>Premio Internazionale di Letteratura Città di Como</b>, XIII edizione — selezionato, sezione poesia inedita<span>giuria presieduta da Andrea Vitali</span></li>
+    </ul></div>
+
+    <div class="year"><div class="y">2025</div><ul>
+      <li><b>Premio Internazionale La Via dei Libri</b> — Premio Opera Prima per <em>La Costruzione di un'Immagine</em><span>Pontremoli</span></li>
+      <li><b>Premio Ossi di Seppia</b> — miglior autore regionale per <em>I Poeti</em></li>
+      <li><b>Premio Internazionale Casentino</b> — premio speciale della giuria per <em>La Costruzione di un'Immagine</em>; menzione d'onore per <em>Tre Finestre</em> e <em>La Ragazza dal Collo d'Anatra</em></li>
+      <li><b>Concorso «per Modigliani»</b>, Le Cicale Operose — secondo premio assoluto per <em>La Ragazza dal Collo d'Anatra</em><span>Livorno</span></li>
+      <li><b>Premio Besio 1860</b>, sezione Camillo Sbarbaro — premio speciale della giuria per <em>Via dei Salici</em></li>
+      <li><b>Premio Letterario Internazionale Città di Massa</b> — menzione speciale della critica per <em>La Costruzione di un'Immagine</em></li>
+      <li><b>Premio Internazionale Città di Varallo</b> — premio speciale della giuria per <em>La Costruzione di un'Immagine</em>; menzione di merito per <em>La Gazza Ladra</em></li>
+      <li><b>Premio Internazionale Le Occasioni</b> — premio speciale della giuria per l'opera poetica</li>
+      <li><b>Premio Agenda dei Poeti</b> — Premio Eccellenza Poetica per <em>La Costruzione di un'Immagine</em>; menzione di merito per <em>La Guerra</em></li>
+      <li><b>Premio Candia</b> — menzioni di merito per <em>Mare d'Inferno</em> e <em>Montevignale di Lunigiana</em></li>
+      <li><b>Premio Centurione Città di Aulla</b> — sezione poesia</li>
+      <li><b>Premio Internazionale Michelangelo</b> — menzione d'onore per <em>Il lato positivo degli accadimenti</em></li>
+      <li><b>Premio Internazionale Emozioni Poetiche</b> — menzione di merito per <em>Dolore</em></li>
+    </ul></div>
+
+    <div class="year"><div class="y">2024</div><ul>
+      <li><b>Premio Internazionale Il Canto di Dafne</b> — terzo premio assoluto per <em>I dieci livelli</em></li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="band" id="stregati">
+  <div class="wrap">
+    <p class="eyebrow">Stregati</p>
+    <h2>Poesia al buio, il martedì sera</h2>
+    <div class="stregati">
+      <div>
+        <p><em>Stregati</em> è un programma di poesia in onda il martedì sera su RadioElle Lunigiana e Lunigiana Web TV. Ogni puntata un poeta: una definizione breve, un aneddoto verificato, la lettura, e in chiusura una musica che non consola.</p>
+        <p><a class="btn" href="https://www.youtube.com/playlist?list=PLN4rlKyxpfRU">Tutte le puntate su YouTube</a></p>
+        <p class="sign">Al buio, come sempre 🌙</p>
+      </div>
+      <div>
+        <h3>L'archivio</h3>
+        <p>Sedici puntate raccolte sul canale YouTube di Giuseppe Giannotti, dalla prima all'ultima. Qui, nel sito definitivo, la playlist compare incorporata e si aggiorna da sola a ogni caricamento; sotto, l'elenco delle ultime puntate con il poeta di ciascuna.</p>
+        <ul class="episodes">
+          <li><time>mar 20 ott</time><span>Arthur Rimbaud</span></li>
+          <li><time>mar 13 ott</time><span>Oscar Wilde</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="giuria">
+  <div class="wrap">
+    <p class="eyebrow">Giuria e critica</p>
+    <h2>Incarichi</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Anno</th><th>Premio</th><th>Ruolo</th></tr></thead>
+      <tbody>
+        <tr><td>2026</td><td>Premio Internazionale Il Canto di Dafne</td><td>Giurato, sezione poesia inedita</td></tr>
+        <tr><td>2026</td><td>Premio letterario Le Nove Muse</td><td>Comitato organizzatore</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note" style="margin-top:1.5rem">Scrive note critiche e presentazioni di raccolte. Per inviti a giurie, letture e presentazioni, scrivere all'indirizzo in fondo alla pagina.</p>
+  </div>
+</section>
+
+<section class="band" id="newsletter">
+  <div class="wrap">
+    <p class="eyebrow">Newsletter</p>
+    <h2>Una lettera a settimana</h2>
+    <p>Il poeta di <em>Stregati</em>, due osservazioni, il link alla puntata. Niente altro, niente pubblicità. Ci si cancella con un clic in fondo a ogni lettera.</p>
+    <form id="nl" novalidate>
+      <div><label for="nl-name">Nome</label><input id="nl-name" type="text" autocomplete="given-name"></div>
+      <div><label for="nl-email">Email</label><input id="nl-email" type="email" autocomplete="email" required></div>
+      <label class="consent"><input id="nl-consent" type="checkbox" required> Acconsento a ricevere la newsletter. I dati sono trattati come descritto nell'informativa privacy.</label>
+      <div><button class="btn" type="submit" id="nl-submit">Iscrivimi</button></div>
+      <p class="msg" id="nl-msg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap">
+    <p class="eyebrow">Contatti</p>
+    <h2>Scrivere all'autore</h2>
+    <div class="email">
+      <code id="mail">beppegiannotti4@gmail.com</code>
+      <button class="btn ghost" type="button" id="copy">Copia</button>
+      <span class="msg" id="copy-msg" aria-live="polite"></span>
+    </div>
+    <p class="note" style="margin-top:1.5rem">Aulla, Lunigiana (Massa-Carrara). Voce su <a href="https://wikipoesia.it/wiki/Giuseppe_Giannotti">WikiPoesia</a>.</p>
+  </div>
+</section>
+</main>
+
+<footer class="wide">
+  <span>© 2026 Giuseppe Giannotti</span>
+  <span>Informativa privacy · I testi inediti non sono pubblicati su questo sito</span>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('nl'),msg=document.getElementById('nl-msg');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=document.getElementById('nl-email'),ok=document.getElementById('nl-consent');
+    if(!em.value||em.value.indexOf('@')<0){msg.textContent='Inserisci un indirizzo email valido.';em.focus();return}
+    if(!ok.checked){msg.textContent='Serve il consenso per iscriverti.';ok.focus();return}
+    msg.textContent='Anteprima: nel sito definitivo l\'iscrizione passa al servizio newsletter.';
+  });
+  var copy=document.getElementById('copy'),cm=document.getElementById('copy-msg'),mail=document.getElementById('mail');
+  copy.addEventListener('click',function(){
+    var t=mail.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);cm.textContent='Seleziona e copia.'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){cm.textContent='Copiato.'},sel)}else{sel()}
+  });
+  var links=document.querySelectorAll('nav a');
+  function mark(){var h=location.hash||'#home';links.forEach(function(a){a.setAttribute('aria-current',a.getAttribute('href')===h?'true':'false')})}
+  addEventListener('hashchange',mark);mark();
+})();
+</script>
+
+</body>
+</html>
