@@ -131,3 +131,7 @@ article.piece .verse cite{display:block;font-style:italic;font-size:1rem;color:v
 article.piece .stage{font-family:var(--ui);font-size:.85rem;color:var(--fg-2);margin:1.4rem 0}
 article.piece .back{font-family:var(--ui);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-bottom:2rem}
 article.piece .endnote{color:var(--fg-2);font-size:.95rem;border-top:1px solid var(--rule);padding-top:1.2rem;margin-top:2.5rem}
+
+article.piece .photo{margin:0 0 2.5rem}
+article.piece .photo img{display:block;width:100%;max-width:26rem;height:auto}
+article.piece figcaption{font-family:var(--ui);font-size:.8rem;color:var(--fg-2);margin-top:.5rem}
