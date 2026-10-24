@@ -132,6 +132,12 @@ article.piece .stage{font-family:var(--ui);font-size:.85rem;color:var(--fg-2);ma
 article.piece .back{font-family:var(--ui);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-bottom:2rem}
 article.piece .endnote{color:var(--fg-2);font-size:.95rem;border-top:1px solid var(--rule);padding-top:1.2rem;margin-top:2.5rem}
 
+article.piece h2{font-size:1.7rem;margin:2.6rem 0 1.1rem}
+.facts{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:.7rem 1.4rem;margin:0 0 1.4rem}
+.facts dt{font-family:var(--ui);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-2);padding-top:.25rem}
+.facts dd{margin:0}
+@media (max-width:560px){.facts{grid-template-columns:1fr;gap:.2rem .5rem}.facts dd{margin-bottom:.8rem}}
+
 article.piece .photo{margin:0 0 2.5rem}
 article.piece .photo img{display:block;width:100%;max-width:30rem;height:auto}
 article.piece figcaption{font-family:var(--ui);font-size:.8rem;color:var(--fg-2);margin-top:.5rem}
