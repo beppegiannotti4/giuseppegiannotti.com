@@ -106,6 +106,9 @@ label{font-family:var(--ui);font-size:.85rem;color:var(--fg-2)}
 input[type=email],input[type=text]{font:inherit;padding:.65rem .8rem;border:1px solid var(--rule);background:var(--bg);color:var(--fg);border-radius:2px;width:100%}
 .consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:var(--fg-2);font-family:var(--ui)}
 .consent input{margin-top:.3rem}
+.hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+label .opt{text-transform:none;letter-spacing:0;opacity:.8}
+.btn:disabled{opacity:.6;cursor:default}
 .msg{font-family:var(--ui);font-size:.9rem;color:var(--accent);min-height:1.2em}
 .email{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
 .email code{font-family:var(--ui);font-size:1rem;background:var(--bg-2);padding:.45rem .7rem;border-radius:2px;user-select:all}
