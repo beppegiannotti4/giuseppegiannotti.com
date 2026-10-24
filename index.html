@@ -213,7 +213,6 @@ le tue dimensioni slegate.</pre></div>
     <form id="nl" action="https://assets.mailerlite.com/jsonp/2732743/forms/202202272989448115/subscribe" method="post" novalidate>
       <div><label for="nl-name">Nome <span class="opt">(facoltativo)</span></label><input id="nl-name" name="fields[name]" type="text" autocomplete="given-name"></div>
       <div><label for="nl-email">Email</label><input id="nl-email" name="fields[email]" type="email" autocomplete="email" required></div>
-      <div class="hp" aria-hidden="true"><label for="nl-web">Sito</label><input id="nl-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <input type="hidden" name="ml-submit" value="1">
       <input type="hidden" name="anticsrf" value="true">
       <label class="consent"><input id="nl-consent" type="checkbox" required> <span>Acconsento a ricevere la newsletter. I dati sono trattati come descritto nell'<a href="privacy.html">informativa privacy</a>.</span></label>
@@ -254,10 +253,9 @@ le tue dimensioni slegate.</pre></div>
   var form=document.getElementById('nl'),msg=document.getElementById('nl-msg'),btn=document.getElementById('nl-submit');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var em=document.getElementById('nl-email'),ok=document.getElementById('nl-consent'),hp=document.getElementById('nl-web');
+    var em=document.getElementById('nl-email'),ok=document.getElementById('nl-consent');
     if(!em.value||em.value.indexOf('@')<0){msg.textContent='Inserisci un indirizzo email valido.';em.focus();return}
     if(!ok.checked){msg.textContent='Serve il consenso per iscriverti.';ok.focus();return}
-    if(hp.value){msg.textContent='Iscrizione registrata.';return}
     var data=new FormData();
     data.append('fields[email]',em.value.trim());
     var nm=document.getElementById('nl-name').value.trim();if(nm)data.append('fields[name]',nm);
