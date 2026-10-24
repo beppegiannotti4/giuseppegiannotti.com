@@ -22,6 +22,7 @@
     <a class="brand" href="#home">Giuseppe Giannotti</a>
     <nav aria-label="Sezioni">
       <ul>
+        <li id="nav-novita"><a href="#novita">Novità</a></li>
         <li><a href="#libri">Libri</a></li>
         <li><a href="#premi">Premi</a></li>
         <li><a href="#stregati">Stregati</a></li>
@@ -45,6 +46,18 @@
       <small>Claude Sautet, epitaffio a Montparnasse</small>
     </blockquote>
     </div>
+  </div>
+</section>
+
+<section id="novita">
+  <div class="wrap">
+    <p class="eyebrow">Novità</p>
+    <h2>Ultimi quindici giorni</h2>
+    <ul class="news">
+      <li data-date="2026-10-23"><time>23 ottobre</time><span>Pubblicato il bando del Premio Intercontinentale di Arte Letteraria «Le Nove Muse» 2026–27: Parma, scadenza 30 marzo 2027. <a href="giuria/le-nove-muse.html">La pagina del premio</a></span></li>
+      <li data-date="2026-10-20"><time>20 ottobre</time><span><em>Stregati</em>: la puntata su Arthur Rimbaud. <a href="https://www.youtube.com/playlist?list=PLN4rlKyxpfRU">Su YouTube</a></span></li>
+      <li data-date="2026-10-18"><time>ottobre</time><span>Secondo premio al Premio Pasolini-Parigi, poesia edita, per <em>La Costruzione di un'Immagine</em>. <a href="#premi">I riconoscimenti</a></span></li>
+    </ul>
   </div>
 </section>
 
@@ -240,6 +253,14 @@ le tue dimensioni slegate.</pre></div>
     function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);cm.textContent='Seleziona e copia.'}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){cm.textContent='Copiato.'},sel)}else{sel()}
   });
+  /* Novità: ogni voce ha data-date; dopo 15 giorni sparisce. Senza voci sparisce la sezione e la voce di menu. */
+  var news=document.querySelectorAll('.news li[data-date]'),today=new Date(),left=0;
+  today.setHours(0,0,0,0);
+  news.forEach(function(li){
+    var d=new Date(li.getAttribute('data-date')+'T00:00:00');
+    if((today-d)/864e5>15){li.remove()}else{left++}
+  });
+  if(!left){var s=document.getElementById('novita'),n=document.getElementById('nav-novita');if(s)s.remove();if(n)n.remove()}
   var links=document.querySelectorAll('nav a');
   function mark(){var h=location.hash||'#home';links.forEach(function(a){a.setAttribute('aria-current',a.getAttribute('href')===h?'true':'false')})}
   addEventListener('hashchange',mark);mark();
