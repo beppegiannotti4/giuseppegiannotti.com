@@ -262,7 +262,7 @@ le tue dimensioni slegate.</pre></div>
     data.append('ml-submit','1');data.append('anticsrf','true');
     btn.disabled=true;msg.textContent='Un momento…';
     fetch(form.action,{method:'POST',body:data}).then(function(r){return r.json()}).then(function(j){
-      if(j&&j.success){form.reset();msg.textContent='Iscrizione registrata. La prima lettera arriva dopo il prossimo Stregati.'}
+      if(j&&j.success){form.reset();msg.textContent='Quasi fatto: ti ho mandato un\'email di conferma (in inglese, viene dal servizio). Apri il link e sei iscritto.'}
       else{var m=(j&&j.errors&&j.errors.fields&&j.errors.fields.email)?j.errors.fields.email[0]:'';msg.textContent=/already|già/i.test(m)?'Questo indirizzo è già iscritto.':'Non sono riuscito a registrare l\'iscrizione. Riprova, o scrivi a lettera@giuseppegiannotti.com.'}
     }).catch(function(){msg.textContent='Non sono riuscito a registrare l\'iscrizione. Riprova, o scrivi a lettera@giuseppegiannotti.com.'})
     .then(function(){btn.disabled=false});
