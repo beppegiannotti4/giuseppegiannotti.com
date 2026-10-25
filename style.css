@@ -83,6 +83,7 @@ p{margin:0 0 1rem}
 .year li{line-height:1.45}
 .year li b{font-weight:500}
 .year li span{display:block;color:var(--fg-2);font-size:1rem}
+.year li q{display:block;margin:.35rem 0 0;padding-left:.9rem;border-left:2px solid var(--rule);color:var(--fg-2);font-style:italic;font-size:1rem;quotes:"«" "»"}
 
 /* Stregati */
 .stregati{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:2rem 3rem}
