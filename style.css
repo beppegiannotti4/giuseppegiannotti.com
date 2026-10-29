@@ -174,3 +174,4 @@ article.piece .pair img{max-width:none}
 .archive li{grid-template-columns:7rem minmax(0,1fr)}
 .piece .daily-head h1{margin-bottom:.3rem}
 a.back{display:inline-block;font-family:var(--ui);font-size:.8rem;letter-spacing:.04em;margin-bottom:1.5rem}
+.daily-head.solo{grid-template-columns:1fr;margin-bottom:1.5rem}
