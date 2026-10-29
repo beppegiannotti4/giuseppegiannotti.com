@@ -76,6 +76,8 @@ p{margin:0 0 1rem}
 .daily h2{margin-bottom:.3rem}
 .daily-meta,.daily-src{font-family:var(--ui);font-size:.8rem;letter-spacing:.04em;color:var(--fg-2)}
 .daily-meta{margin:0 0 2rem}
+.daily-intro{max-width:38rem}
+.daily-intro + h3{margin-top:2rem}
 .daily h3{font-style:italic;margin:0 0 1rem}
 .daily pre{font:inherit;white-space:pre-wrap;margin:0 0 1.4rem;line-height:1.5;font-size:1.2rem}
 
