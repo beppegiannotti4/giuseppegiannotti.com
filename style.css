@@ -67,6 +67,12 @@ p{margin:0 0 1rem}
 @media (max-width:560px){.news li{grid-template-columns:1fr;gap:.1rem}}
 
 /* Poesia del giorno */
+.daily-head{display:grid;grid-template-columns:minmax(0,9rem) minmax(0,1fr);gap:1.5rem;align-items:end;margin-bottom:2rem}
+.daily-head .daily-meta{margin:0}
+.daily-photo{margin:0}
+.daily-photo img{display:block;width:100%;height:auto;filter:grayscale(1)}
+.daily-photo figcaption{font-family:var(--ui);font-size:.7rem;color:var(--fg-2);margin-top:.4rem;line-height:1.35}
+@media (max-width:480px){.daily-head{grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1rem}}
 .daily h2{margin-bottom:.3rem}
 .daily-meta,.daily-src{font-family:var(--ui);font-size:.8rem;letter-spacing:.04em;color:var(--fg-2)}
 .daily-meta{margin:0 0 2rem}
