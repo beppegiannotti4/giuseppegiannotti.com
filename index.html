@@ -25,6 +25,7 @@
     <nav aria-label="Sezioni">
       <ul>
         <li id="nav-novita"><a href="#novita">Novità</a></li>
+        <li id="nav-poesia"><a href="#poesia">Poesia del giorno</a></li>
         <li><a href="#libri">Libri</a></li>
         <li><a href="#articoli">Articoli</a></li>
         <li><a href="#stregati">Stregati</a></li>
@@ -66,6 +67,35 @@
       <li data-date="2026-10-20"><time>20 ottobre</time><span><em>Stregati</em>: la puntata su Arthur Rimbaud. <a href="https://www.youtube.com/playlist?list=PLN4rlKyxpfRU">Su YouTube</a></span></li>
       <li data-date="2026-10-18"><time>ottobre</time><span>Secondo premio al Premio Pasolini-Parigi, poesia edita, per <em>La Costruzione di un'Immagine</em>. <a href="#premi">I riconoscimenti</a></span></li>
     </ul>
+  </div>
+</section>
+
+<section id="poesia">
+  <div class="wrap">
+    <p class="eyebrow">Poesia del giorno</p>
+    <!-- Una voce per giorno: data-day="MM-GG". Lo script mostra quella di oggi (ora di Roma); senza voce del giorno sparisce la sezione.
+         Solo autori di dominio pubblico (morti entro il 1955), testo originale controllato da Giuseppe. -->
+    <article class="daily" data-day="10-29" hidden>
+      <h2>Guillermo Valencia</h2>
+      <p class="daily-meta">Nato a Popayán, in Colombia, il 29 ottobre 1873 · morto nel 1943</p>
+      <h3 lang="es">Sursum</h3>
+      <pre lang="es">[TESTO DA INSERIRE]</pre>
+      <p class="daily-src">da <em lang="es">Ritos</em> (1899) · in originale</p>
+    </article>
+    <article class="daily" data-day="10-30" hidden>
+      <h2>Paul Valéry</h2>
+      <p class="daily-meta">Nato a Sète il 30 ottobre 1871 · morto nel 1945</p>
+      <h3 lang="fr">Les Pas</h3>
+      <pre lang="fr">[TESTO DA INSERIRE]</pre>
+      <p class="daily-src">da <em lang="fr">Charmes</em> (1922) · in originale</p>
+    </article>
+    <article class="daily" data-day="10-31" hidden>
+      <h2>John Keats</h2>
+      <p class="daily-meta">Nato a Londra il 31 ottobre 1795 · morto nel 1821</p>
+      <h3 lang="en">Bright star, would I were stedfast as thou art</h3>
+      <pre lang="en">[TESTO DA INSERIRE]</pre>
+      <p class="daily-src">sonetto scritto nel 1819 · in originale</p>
+    </article>
   </div>
 </section>
 
@@ -325,6 +355,13 @@ le tue dimensioni slegate.</pre></div>
     if((today-d)/864e5>15){li.remove()}else{left++}
   });
   if(!left){var s=document.getElementById('novita'),n=document.getElementById('nav-novita');if(s)s.remove();if(n)n.remove()}
+  /* Poesia del giorno: mostra la voce con data-day uguale a oggi (ora di Roma). Se non c'è, sparisce la sezione e la voce di menu. */
+  var day;
+  try{var p=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Rome',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+    day=p.filter(function(x){return x.type==='month'})[0].value+'-'+p.filter(function(x){return x.type==='day'})[0].value}
+  catch(e){var t=new Date();day=('0'+(t.getMonth()+1)).slice(-2)+'-'+('0'+t.getDate()).slice(-2)}
+  var poem=document.querySelector('.daily[data-day="'+day+'"]');
+  if(poem){poem.hidden=false}else{var ps=document.getElementById('poesia'),pn=document.getElementById('nav-poesia');if(ps)ps.remove();if(pn)pn.remove()}
   var links=document.querySelectorAll('nav a');
   function mark(){var h=location.hash||'#home';links.forEach(function(a){a.setAttribute('aria-current',a.getAttribute('href')===h?'true':'false')})}
   addEventListener('hashchange',mark);mark();

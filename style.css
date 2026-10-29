@@ -66,6 +66,13 @@ p{margin:0 0 1rem}
 .news time{font-family:var(--ui);font-size:.8rem;letter-spacing:.04em;color:var(--fg-2);font-variant-numeric:tabular-nums}
 @media (max-width:560px){.news li{grid-template-columns:1fr;gap:.1rem}}
 
+/* Poesia del giorno */
+.daily h2{margin-bottom:.3rem}
+.daily-meta,.daily-src{font-family:var(--ui);font-size:.8rem;letter-spacing:.04em;color:var(--fg-2)}
+.daily-meta{margin:0 0 2rem}
+.daily h3{font-style:italic;margin:0 0 1rem}
+.daily pre{font:inherit;white-space:pre-wrap;margin:0 0 1.4rem;line-height:1.5;font-size:1.2rem}
+
 /* Libri */
 .book{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:2rem;align-items:start}
 .cover{width:100%;max-width:100%;height:auto;display:block;box-shadow:0 1px 2px rgba(0,0,0,.25),0 8px 24px -12px rgba(0,0,0,.35)}
