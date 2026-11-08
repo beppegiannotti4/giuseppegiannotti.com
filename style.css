@@ -71,6 +71,7 @@ p{margin:0 0 1rem}
 .daily-head .daily-meta{margin:0}
 .daily-photo{margin:0}
 .daily-photo img{display:block;width:100%;height:auto;filter:grayscale(1)}
+.daily-photo.cover img{filter:none}
 .daily-photo figcaption{font-family:var(--ui);font-size:.7rem;color:var(--fg-2);margin-top:.4rem;line-height:1.35}
 @media (max-width:480px){.daily-head{grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1rem}}
 .daily h2{margin-bottom:.3rem}
